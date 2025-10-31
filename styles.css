@@ -399,9 +399,9 @@ h1 {
 
 .experience-stack {
   position: relative;
-  min-height: calc(var(--experience-card-count, 4) * 110vh);
-  margin-top: clamp(var(--space-md), 10vh, var(--space-xl));
-  padding-bottom: 20vh;
+  min-height: calc(var(--experience-card-count, 4) * 95vh);
+  margin-top: clamp(var(--space-md), 8vh, var(--space-xl));
+  padding-bottom: var(--space-lg);
 }
 
 .experience-card {
