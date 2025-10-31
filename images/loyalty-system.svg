@@ -1,0 +1,10 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#f0f4f8"/>
+  <rect x="100" y="100" width="1000" height="600" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="600" cy="350" r="100" fill="none" stroke="#2563eb" stroke-width="4"/>
+  <circle cx="600" cy="350" r="70" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.6"/>
+  <circle cx="600" cy="350" r="40" fill="#2563eb" opacity="0.3"/>
+  <polygon points="600,310 615,345 650,350 625,375 630,410 600,395 570,410 575,375 550,350 585,345" fill="#2563eb"/>
+  <text x="600" y="530" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#1a1a1a" text-anchor="middle">Loyalty System</text>
+  <text x="600" y="600" font-family="Arial, sans-serif" font-size="18" fill="#666666" text-anchor="middle">Point-Based Rewards Platform</text>
+</svg>

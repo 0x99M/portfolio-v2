@@ -1,0 +1,13 @@
+# Images Directory
+
+Place your project images here:
+- recipe-extractor.png
+- trading-platform.png
+- loyalty-system.png
+
+Recommended image specifications:
+- Format: PNG or JPG
+- Size: 1200x800px (3:2 aspect ratio)
+- File size: < 500KB for optimal loading
+- Use descriptive filenames matching projects.json entries
+

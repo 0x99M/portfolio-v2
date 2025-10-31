@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Anonymous Developer</title>
+    <meta name="description" content="My portfolio of projects and work">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">0x99m</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="index.html#education" class="nav-link">Education</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="projects-hero">
+            <div class="container">
+                <h1 class="projects-title fade-in">Projects</h1>
+                <p class="projects-subtitle fade-in">A showcase of my work and contributions</p>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <div class="container">
+                <div id="projects-grid" class="projects-grid">
+                    <!-- Projects will be loaded dynamically from projects.json -->
+                    <div class="loading">Loading projects...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025. Built with HTML, CSS, and JavaScript.</p>
+            <a href="mailto:me@0x99m.com" class="footer-email">me@0x99m.com</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load projects from JSON
+        async function loadProjects() {
+            try {
+                const response = await fetch('projects.json');
+                const data = await response.json();
+                const projectsGrid = document.getElementById('projects-grid');
+                
+                if (data.projects && data.projects.length > 0) {
+                    projectsGrid.innerHTML = data.projects.map((project, index) => `
+                        <article class="project-card fade-in" style="animation-delay: ${index * 0.1}s">
+                            <div class="project-image-container">
+                                <img src="${project.image}" alt="${project.title}" class="project-image" loading="lazy">
+                                <div class="project-overlay">
+                                    <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-link-overlay">
+                                        View Project →
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">${project.title}</h3>
+                                <p class="project-description">${project.description}</p>
+                                ${project.technologies ? `
+                                    <div class="project-technologies">
+                                        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                                    </div>
+                                ` : ''}
+                                <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    Visit Project →
+                                </a>
+                            </div>
+                        </article>
+                    `).join('');
+                } else {
+                    projectsGrid.innerHTML = '<p class="no-projects">No projects available yet. Check back soon!</p>';
+                }
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                document.getElementById('projects-grid').innerHTML = 
+                    '<p class="error-message">Unable to load projects. Please try again later.</p>';
+            }
+        }
+
+        // Load projects when page loads
+        document.addEventListener('DOMContentLoaded', loadProjects);
+    </script>
+</body>
+</html>
+

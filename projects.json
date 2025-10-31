@@ -1,0 +1,41 @@
+{
+  "projects": [
+    {
+      "title": "AI Recipe Extractor",
+      "description": "AI-powered SaaS platform that converts YouTube cooking videos into structured, searchable recipes. Features tiered subscription model and real-time processing.",
+      "image": "images/recipe-extractor.svg",
+      "link": "https://example.com",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "DrizzleORM",
+        "Clerk Auth",
+        "Fly.io"
+      ]
+    },
+    {
+      "title": "Trading Backtesting Platform",
+      "description": "Enterprise-grade trading SaaS with advanced multi-asset backtesting tools. Built with modern cloud architecture and integrated payment processing.",
+      "image": "images/trading-platform.svg",
+      "link": "https://example.com",
+      "technologies": [
+        "Next.js",
+        "FastAPI",
+        "Python",
+        "AWS",
+        "DynamoDB",
+        "S3",
+        "Auth0",
+        "Paddle"
+      ]
+    },
+    {
+      "title": "Customer Loyalty System",
+      "description": "Modern loyalty program platform enabling point-based rewards and dynamic discount systems for retail businesses.",
+      "image": "images/loyalty-system.svg",
+      "link": "https://example.com",
+      "technologies": ["TypeScript", "React", "Node.js", "PostgreSQL"]
+    }
+  ]
+}
