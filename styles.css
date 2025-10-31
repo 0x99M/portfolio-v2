@@ -252,7 +252,7 @@ h1 {
   justify-content: center;
 }
 
-/* Gumroad-style Buttons */
+/* Neubrutalism Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -261,68 +261,32 @@ h1 {
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 700;
-  border: var(--border-width) solid var(--color-border);
+  border: 3px solid var(--color-border);
   border-radius: var(--border-radius-btn);
-  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 200ms ease;
   cursor: pointer;
   position: relative;
-  overflow: visible;
+  box-shadow: 6px 6px 0 0 var(--color-border);
 }
 
-.btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--border-radius-btn);
-  background: var(--color-secondary);
-  opacity: 1;
+.btn:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 0 var(--color-border);
+}
+
+.btn:active {
   transform: translate(6px, 6px);
-  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  z-index: -1;
-  pointer-events: none;
+  box-shadow: 0 0 0 0 var(--color-border);
 }
 
 .btn.primary {
   background: var(--color-accent);
   color: var(--color-surface);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.btn.primary:hover {
-  background: var(--color-primary);
-  transform: translateY(3px) translateX(3px);
-}
-
-.btn.primary:hover::before {
-  transform: translate(0, 0);
-}
-
-.btn.primary:active {
-  transform: translateY(1px) translateX(1px);
 }
 
 .btn.ghost {
   background: var(--color-surface);
   color: var(--color-text);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.btn.ghost:hover {
-  background: var(--color-primary);
-  color: var(--color-surface);
-  transform: translateY(3px) translateX(3px);
-}
-
-.btn.ghost:hover::before {
-  transform: translate(0, 0);
-}
-
-.btn.ghost:active {
-  transform: translateY(1px) translateX(1px);
 }
 
 /* Section Styling */
@@ -654,21 +618,23 @@ h1 {
   font-weight: 700;
   color: var(--color-accent);
   padding: 0.8rem 1.5rem;
-  border: 2px solid var(--color-border);
+  border: 3px solid var(--color-border);
   border-radius: var(--border-radius);
   background: var(--color-secondary);
   align-self: start;
-  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 200ms ease;
+  box-shadow: 6px 6px 0 0 var(--color-border);
 }
 
 .project-link:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(255, 201, 0, 0.3);
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 0 var(--color-border);
   background: var(--color-primary);
 }
 
 .project-link:active {
-  transform: translateY(-2px);
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 0 var(--color-border);
 }
 
 .project-link::after {
