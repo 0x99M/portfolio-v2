@@ -4,12 +4,12 @@ A minimal, clean, and modern portfolio website built with vanilla HTML, CSS, and
 
 ## Features
 
-- 🎨 **Clean Minimal Design** - Monochrome aesthetic with subtle accent colors
+- 🎨 **Calm Minimal Design** - Soft palette, Delius typography, airy layouts
 - 📱 **Fully Responsive** - Works seamlessly on desktop, tablet, and mobile
 - 🚀 **Fast Loading** - Optimized static site with nginx serving
 - 📊 **JSON-Driven Projects** - Easy project management through `projects.json`
 - 🖼️ **Image Support** - Beautiful project showcases with hover effects
-- ✨ **Smooth Animations** - Fade-in effects and smooth scrolling
+- ✨ **Simple Animations** - IntersectionObserver-powered fade-up reveals
 - 🔒 **Anonymous** - No personal identifiers, privacy-focused
 - ☁️ **Cloud Ready** - Configured for Fly.io deployment
 
@@ -156,9 +156,11 @@ Edit the CSS variables in `styles.css`:
 
 ```css
 :root {
-    --color-bg: #fafafa;
-    --color-accent: #2563eb;
-    /* ... other colors ... */
+    --color-page: #f7f7f3;
+    --color-surface: #ffffff;
+    --color-accent: #3f51f5;
+    --color-text: #1b1a1e;
+    /* tweak additional tokens in styles.css */
 }
 ```
 
@@ -168,6 +170,11 @@ Edit the CSS variables in `styles.css`:
 2. **Projects**: Edit `projects.json`
 3. **Email**: Replace `me@0x99m.com` in both HTML files
 4. **Logo**: Replace `0x99m` in the nav section
+
+### Animations
+
+- Elements with `data-animate` fade up via an IntersectionObserver in `script.js`.
+- When injecting new content (e.g., after fetching projects), call `window.refreshAnimations()` to register it.
 
 ### Adding Sections
 

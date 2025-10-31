@@ -11,88 +11,89 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">0x99m</a>
-            <ul class="nav-menu">
-                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
-                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
-                <li><a href="index.html#education" class="nav-link">Education</a></li>
-                <li><a href="projects.html" class="nav-link active">Projects</a></li>
-            </ul>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="brand">0x99m</a>
+            <nav class="site-nav">
+                <a href="index.html#experience">Experience</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="index.html#education">Education</a>
+                <a class="is-active" href="projects.html">Projects</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <main>
-        <section class="projects-hero">
-            <div class="container">
-                <h1 class="projects-title fade-in">Projects</h1>
-                <p class="projects-subtitle fade-in">A showcase of my work and contributions</p>
+        <section class="section hero projects-hero" data-animate>
+            <div class="container narrow">
+                <p class="eyebrow">Selected work</p>
+                <h1>Projects</h1>
+                <p class="lead">
+                    A living archive of products, experiments, and client work. Ideal for verification by partners and payment providers.
+                </p>
+                <p class="note">All entries load from a JSON file so updates stay effortless.</p>
             </div>
         </section>
 
-        <section class="projects-section">
+        <section class="section" data-animate>
             <div class="container">
-                <div id="projects-grid" class="projects-grid">
-                    <!-- Projects will be loaded dynamically from projects.json -->
-                    <div class="loading">Loading projects...</div>
+                <div id="projects-grid" class="project-grid">
+                    <div class="loading">Loading projects…</div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025. Built with HTML, CSS, and JavaScript.</p>
-            <a href="mailto:me@0x99m.com" class="footer-email">me@0x99m.com</a>
+            <p>Built with intention · 2025</p>
+            <a href="mailto:me@0x99m.com">me@0x99m.com</a>
         </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Load projects from JSON
         async function loadProjects() {
+            const projectsGrid = document.getElementById('projects-grid');
+
             try {
                 const response = await fetch('projects.json');
                 const data = await response.json();
-                const projectsGrid = document.getElementById('projects-grid');
-                
-                if (data.projects && data.projects.length > 0) {
-                    projectsGrid.innerHTML = data.projects.map((project, index) => `
-                        <article class="project-card fade-in" style="animation-delay: ${index * 0.1}s">
-                            <div class="project-image-container">
-                                <img src="${project.image}" alt="${project.title}" class="project-image" loading="lazy">
-                                <div class="project-overlay">
-                                    <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-link-overlay">
-                                        View Project →
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">${project.title}</h3>
-                                <p class="project-description">${project.description}</p>
-                                ${project.technologies ? `
-                                    <div class="project-technologies">
-                                        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                                    </div>
-                                ` : ''}
-                                <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-link">
-                                    Visit Project →
-                                </a>
-                            </div>
-                        </article>
-                    `).join('');
-                } else {
-                    projectsGrid.innerHTML = '<p class="no-projects">No projects available yet. Check back soon!</p>';
+
+                if (!data.projects || data.projects.length === 0) {
+                    projectsGrid.innerHTML = '<p class="muted">No projects available yet. Check back soon.</p>';
+                    return;
+                }
+
+                projectsGrid.innerHTML = data.projects.map((project, index) => `
+                    <article class="project-card" data-animate style="--delay:${index * 80}ms">
+                        <div class="project-media">
+                            <img src="${project.image}" alt="${project.title}" loading="lazy" />
+                        </div>
+                        <div class="project-body">
+                            <h2>${project.title}</h2>
+                            <p>${project.description}</p>
+                            ${project.technologies ? `
+                                <ul class="project-tags">
+                                    ${project.technologies.map(tech => `<li>${tech}</li>`).join('')}
+                                </ul>
+                            ` : ''}
+                            <a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">
+                                View project
+                            </a>
+                        </div>
+                    </article>
+                `).join('');
+
+                if (typeof window.refreshAnimations === 'function') {
+                    window.refreshAnimations();
                 }
             } catch (error) {
                 console.error('Error loading projects:', error);
-                document.getElementById('projects-grid').innerHTML = 
-                    '<p class="error-message">Unable to load projects. Please try again later.</p>';
+                projectsGrid.innerHTML = '<p class="error">Unable to load projects. Please try again later.</p>';
             }
         }
 
-        // Load projects when page loads
         document.addEventListener('DOMContentLoaded', loadProjects);
     </script>
 </body>

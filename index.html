@@ -11,191 +11,195 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">0x99m</a>
-            <ul class="nav-menu">
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-            </ul>
+    <header class="site-header">
+        <div class="container">
+            <a href="#hero" class="brand">0x99m</a>
+            <nav class="site-nav">
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="projects.html">Projects</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero">
-            <div class="container">
-                <div class="hero-content fade-in">
-                    <h1 class="hero-title">Full-Stack Software Engineer</h1>
-                    <p class="hero-subtitle">
-                        4+ years of experience building scalable SaaS platforms using TypeScript, Python, and AWS. 
-                        Skilled in designing end-to-end systems, leading teams, and integrating AI and cloud-native architectures.
+        <section id="hero" class="section hero" data-animate>
+            <div class="container hero-layout">
+                <div class="hero-copy">
+                    <p class="eyebrow">Full-stack engineer</p>
+                    <h1>Designing reliable products with calm, intentional code.</h1>
+                    <p class="lead">
+                        4+ years building scalable SaaS, trading platforms, and loyalty systems with TypeScript, Python, and AWS.
+                        Focused on shipping resilient experiences that feel effortless to use.
                     </p>
-                    <div class="hero-cta">
-                        <a href="mailto:me@0x99m.com" class="btn btn-primary">Get in Touch</a>
-                        <a href="projects.html" class="btn btn-secondary">View Projects</a>
+                    <div class="cta">
+                        <a href="mailto:me@0x99m.com" class="btn primary">Say hello</a>
+                        <a href="projects.html" class="btn ghost">Projects</a>
                     </div>
                 </div>
+                <aside class="hero-meta" data-animate>
+                    <dl>
+                        <div>
+                            <dt>Current focus</dt>
+                            <dd>Customer loyalty, AI-assisted recipe intelligence, trading automation</dd>
+                        </div>
+                        <div>
+                            <dt>Toolbox</dt>
+                            <dd>TypeScript, Python, Next.js, FastAPI, AWS</dd>
+                        </div>
+                        <div>
+                            <dt>Availability</dt>
+                            <dd>Open to product-focused collaborations</dd>
+                        </div>
+                    </dl>
+                </aside>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="section experience">
+        <section id="experience" class="section" data-animate>
             <div class="container">
-                <h2 class="section-title fade-in">Work Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Software Engineer - TypeScript Full-Stack</h3>
-                                <span class="timeline-date">09/2025 - Present</span>
-                            </div>
-                            <p class="timeline-company">Revest</p>
-                            <ul class="timeline-achievements">
-                                <li>Leading development of a customer loyalty program, enabling point-based rewards and discount systems.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Founding Software Engineer - TypeScript/Python Full-Stack</h3>
-                                <span class="timeline-date">11/2023 - Present</span>
-                            </div>
-                            <p class="timeline-company">Remote</p>
-                            <ul class="timeline-achievements">
-                                <li>Built an AI-powered SaaS converting YouTube cooking videos into structured, searchable recipes using Next.js, DrizzleORM, PostgreSQL, Clerk Auth, and Fly.io with tiered subscriptions.</li>
-                                <li>Developed enterprise-grade trading SaaS using Next.js, FastAPI, and AWS (Amplify, AppRunner, DynamoDB, S3), integrating Auth0 and Paddle with advanced multi-asset backtesting tools.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Software Development Engineer (L4) - Java Backend</h3>
-                                <span class="timeline-date">08/2022 - 10/2023</span>
-                            </div>
-                            <p class="timeline-company">Amazon</p>
-                            <ul class="timeline-achievements">
-                                <li>Led major enhancements to the Exchange Program Control Portal, scaling from 1 → 4 marketplaces.</li>
-                                <li>Redesigned onboarding workflows, improving expansion efficiency by 90%.</li>
-                                <li>Collaborated cross-functionally to scale system architecture for global operations.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Software Developer - Java Backend</h3>
-                                <span class="timeline-date">08/2021 - 08/2022</span>
-                            </div>
-                            <p class="timeline-company">UniTicker</p>
-                            <ul class="timeline-achievements">
-                                <li>Optimized infrastructure, cutting RAM usage by 71% (350GB → <100GB).</li>
-                                <li>Refactored core market data pipelines, improving maintainability and onboarding speed by 70%.</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="section-heading">
+                    <h2>Experience</h2>
+                    <p>Leading end-to-end product delivery across SaaS, fintech, and infrastructure.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section skills">
-            <div class="container">
-                <h2 class="section-title fade-in">Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category fade-in">
-                        <h3>Languages</h3>
-                        <div class="skill-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">Dart</span>
-                            <span class="tag">Java</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Python</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category fade-in">
-                        <h3>Frameworks</h3>
-                        <div class="skill-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Next.js</span>
-                            <span class="tag">Flutter</span>
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">Spring</span>
-                            <span class="tag">TailwindCSS</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category fade-in">
-                        <h3>Dev Tools</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Git</span>
-                            <span class="tag">GitHub</span>
-                            <span class="tag">Postman</span>
-                            <span class="tag">Paddle</span>
-                            <span class="tag">Figma</span>
-                            <span class="tag">Jira</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category fade-in">
-                        <h3>Cloud & Infrastructure</h3>
-                        <div class="skill-tags">
-                            <span class="tag">AWS EC2</span>
-                            <span class="tag">AWS S3</span>
-                            <span class="tag">AWS Lambda</span>
-                            <span class="tag">DynamoDB</span>
-                            <span class="tag">AppRunner</span>
-                            <span class="tag">RDS</span>
-                            <span class="tag">REST APIs</span>
-                            <span class="tag">Linux</span>
-                            <span class="tag">Shell Scripting</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section education">
-            <div class="container">
-                <h2 class="section-title fade-in">Education</h2>
-                <div class="education-content fade-in">
-                    <div class="education-main">
-                        <h3>Bachelor's in Computer Science</h3>
-                        <p class="education-date">09/2017 - 07/2021</p>
-                        <p class="education-gpa">GPA: 3.66 / 4.00 – Excellent</p>
-                    </div>
-                    <div class="achievements">
-                        <h4>Achievements</h4>
+                <div class="stack">
+                    <article class="experience-card" data-animate>
+                        <header>
+                            <div>
+                                <p class="experience-role">Software Engineer · Revest</p>
+                                <p class="experience-summary">Launching a loyalty platform that powers point-based rewards and targeted discounts.</p>
+                            </div>
+                            <span class="experience-date">09/2025 – Present</span>
+                        </header>
                         <ul>
-                            <li>Active contributor to programming contests as a judge, tester, and trainer, solving around 1,500 problems.</li>
-                            <li>Jordanian University Collegiate Programming Contest 2020 – 2nd Place (Gold)</li>
-                            <li>Jordanian Collegiate Programming Contest 2020 – 10th Place (Bronze)</li>
-                            <li>Jordanian University Collegiate Programming Contest 2019 – 3rd Place (Gold)</li>
+                            <li>Own end-to-end architecture from design sprints to production roll-out.</li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card" data-animate>
+                        <header>
+                            <div>
+                                <p class="experience-role">Founding Engineer · Remote</p>
+                                <p class="experience-summary">Built AI-powered recipe intelligence and enterprise-grade trading tooling.</p>
+                            </div>
+                            <span class="experience-date">11/2023 – Present</span>
+                        </header>
+                        <ul>
+                            <li>Delivered a YouTube-to-recipe pipeline with subscription tiers on Fly.io.</li>
+                            <li>Developed multi-asset backtesting SaaS with Next.js, FastAPI, AWS, Auth0, and Paddle.</li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card" data-animate>
+                        <header>
+                            <div>
+                                <p class="experience-role">SDE L4 · Amazon</p>
+                                <p class="experience-summary">Scaled the Exchange Program Control Portal from 1 to 4 marketplaces.</p>
+                            </div>
+                            <span class="experience-date">08/2022 – 10/2023</span>
+                        </header>
+                        <ul>
+                            <li>Redesigned onboarding workflows, increasing expansion efficiency by 90%.</li>
+                            <li>Partnered across teams to deliver globally resilient architecture.</li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card" data-animate>
+                        <header>
+                            <div>
+                                <p class="experience-role">Backend Developer · UniTicker</p>
+                                <p class="experience-summary">Optimized market data infrastructure to unlock rapid product iteration.</p>
+                            </div>
+                            <span class="experience-date">08/2021 – 08/2022</span>
+                        </header>
+                        <ul>
+                            <li>Cut RAM usage by 71% through pipeline refactors and infrastructure tuning.</li>
+                            <li>Improved onboarding speed by 70% with modular data services.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section" data-animate>
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Skills</h2>
+                    <p>Comfortable across the stack, from product thinking to infrastructure.</p>
+                </div>
+                <div class="skill-wrap">
+                    <div class="skill-column" data-animate>
+                        <h3>Languages</h3>
+                        <ul>
+                            <li>C++</li>
+                            <li>Dart</li>
+                            <li>Java</li>
+                            <li>JavaScript</li>
+                            <li>TypeScript</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                    <div class="skill-column" data-animate>
+                        <h3>Frameworks</h3>
+                        <ul>
+                            <li>Next.js</li>
+                            <li>React</li>
+                            <li>Flutter</li>
+                            <li>FastAPI</li>
+                            <li>Spring</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    <div class="skill-column" data-animate>
+                        <h3>Dev Tools</h3>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>Postman</li>
+                            <li>Paddle</li>
+                            <li>Figma</li>
+                            <li>Jira</li>
+                        </ul>
+                    </div>
+                    <div class="skill-column" data-animate>
+                        <h3>Cloud & Ops</h3>
+                        <ul>
+                            <li>AWS (EC2, S3, Lambda, DynamoDB, AppRunner, RDS)</li>
+                            <li>REST APIs</li>
+                            <li>Linux</li>
+                            <li>Shell scripting</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="education" class="section" data-animate>
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Education</h2>
+                    <p>Computer Science, University of Jordan · GPA 3.66/4.00</p>
+                </div>
+                <div class="education-card" data-animate>
+                    <div>
+                        <p class="education-period">2017 – 2021</p>
+                        <p class="education-role">Bachelor’s in Computer Science</p>
+                    </div>
+                    <ul>
+                        <li>Active judge, tester, and trainer in programming contests (1,500+ problems solved).</li>
+                        <li>Jordanian University Collegiate Programming Contest 2020 – Gold (2nd).</li>
+                        <li>Jordanian Collegiate Programming Contest 2020 – Bronze (10th).</li>
+                        <li>Jordanian University Collegiate Programming Contest 2019 – Gold (3rd).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025. Built with HTML, CSS, and JavaScript.</p>
-            <a href="mailto:me@0x99m.com" class="footer-email">me@0x99m.com</a>
+            <p>Built with intention · 2025</p>
+            <a href="mailto:me@0x99m.com">me@0x99m.com</a>
         </div>
     </footer>
 
