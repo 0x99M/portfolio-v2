@@ -593,17 +593,11 @@ h1 {
   color: var(--color-surface);
   position: relative;
   overflow: hidden;
+  max-width: min(100%, 820px);
+  margin: 0 auto;
 }
 
-.education-card::after {
-  content: "🎓";
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  font-size: 100px;
-  opacity: 0.1;
-  transform: rotate(-15deg);
-}
+/* Removed decorative hat icon from education card background */
 
 .education-period {
   font-size: 0.9rem;
@@ -901,6 +895,10 @@ h1 {
     padding: clamp(1.4rem, 3.4vw, 2.2rem);
   }
   
+  .education-card {
+    max-width: min(100%, 700px);
+  }
+  
   .experience-card[data-card-index="3"] {
     margin-bottom: 0;
   }
@@ -952,6 +950,10 @@ h1 {
   .experience-card {
     top: clamp(48px, 14vh, 110px);
     padding: var(--space-md);
+    max-width: min(100%, 640px);
+  }
+  
+  .education-card {
     max-width: min(100%, 640px);
   }
   
