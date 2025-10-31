@@ -5,6 +5,61 @@ const getHeaderHeight = () => {
     return header ? header.getBoundingClientRect().height : 0;
 };
 
+// Add hover effect for cards with tilt
+const setupCardTilt = () => {
+    const cards = document.querySelectorAll('.experience-card, .skill-column, .project-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+};
+
+// Add parallax effect to floating shapes
+const setupParallax = () => {
+    const shapes = document.querySelectorAll('.floating-shape');
+    
+    if (shapes.length === 0) return;
+    
+    let ticking = false;
+    
+    const updateParallax = () => {
+        const scrolled = window.pageYOffset;
+        
+        shapes.forEach((shape, index) => {
+            const speed = 0.5 + (index * 0.2);
+            const yPos = -(scrolled * speed);
+            shape.style.transform = `translateY(${yPos}px)`;
+        });
+        
+        ticking = false;
+    };
+    
+    const requestTick = () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    };
+    
+    window.addEventListener('scroll', requestTick, { passive: true });
+};
+
 const handleSmoothScroll = () => {
     const links = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
     if (!links.length) return;
@@ -94,5 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
     handleSmoothScroll();
     handleActiveNav();
     setupAnimations();
+    setupCardTilt();
+    setupParallax();
+    
+    // Re-initialize card tilt when projects are loaded
+    if (window.location.pathname.includes('projects.html')) {
+        const originalRefresh = window.refreshAnimations;
+        window.refreshAnimations = function() {
+            originalRefresh();
+            setTimeout(setupCardTilt, 100);
+        };
+    }
 });
 
