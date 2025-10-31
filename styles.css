@@ -32,9 +32,8 @@
   --space-lg: 2.5rem;
   --space-xl: 4rem;
   --space-xxl: 6rem;
-  --font-body: "Delius", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
-  --font-display: "Delius", "Arial Black", Arial, sans-serif;
+  --font-body: "Comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Comfortaa", "Arial Black", Arial, sans-serif;
   --transition: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
