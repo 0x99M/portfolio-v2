@@ -15,17 +15,29 @@
     <div class="floating-shape"></div>
     <div class="floating-shape"></div>
     
-    <header class="site-header">
-        <div class="container">
-            <a href="#hero" class="brand">0x99m</a>
-            <nav class="site-nav">
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#education">Education</a>
-                <a href="projects.html">Projects</a>
-            </nav>
-        </div>
-    </header>
+    <!-- Section Indicator -->
+    <div class="section-indicator">
+        <a href="#hero" class="indicator-item" data-section="hero" title="Home">
+            <span class="indicator-dot"></span>
+            <span class="indicator-label">Home</span>
+        </a>
+        <a href="#experience" class="indicator-item" data-section="experience" title="Experience">
+            <span class="indicator-dot"></span>
+            <span class="indicator-label">Experience</span>
+        </a>
+        <a href="#skills" class="indicator-item" data-section="skills" title="Skills">
+            <span class="indicator-dot"></span>
+            <span class="indicator-label">Skills</span>
+        </a>
+        <a href="#education" class="indicator-item" data-section="education" title="Education">
+            <span class="indicator-dot"></span>
+            <span class="indicator-label">Education</span>
+        </a>
+        <a href="projects.html" class="indicator-item indicator-item-special" data-section="projects" title="Projects">
+            <span class="indicator-dot"></span>
+            <span class="indicator-label">Projects</span>
+        </a>
+    </div>
 
     <main>
         <section id="hero" class="section hero" data-animate>
@@ -44,14 +56,14 @@
             </div>
         </section>
 
-        <section id="experience" class="section" data-animate>
+        <section id="experience" class="section experience-section" data-animate>
             <div class="container">
                 <div class="section-heading">
                     <h2>Experience</h2>
                     <p>Leading end-to-end product delivery across SaaS, fintech, and infrastructure.</p>
                 </div>
-                <div class="stack">
-                    <article class="experience-card" data-animate>
+                <div class="experience-stack">
+                    <article class="experience-card" data-card-index="0">
                         <header>
                             <div>
                                 <p class="experience-role">Software Engineer · Revest</p>
@@ -64,7 +76,7 @@
                         </ul>
                     </article>
 
-                    <article class="experience-card" data-animate>
+                    <article class="experience-card" data-card-index="1">
                         <header>
                             <div>
                                 <p class="experience-role">Founding Engineer · Remote</p>
@@ -78,7 +90,7 @@
                         </ul>
                     </article>
 
-                    <article class="experience-card" data-animate>
+                    <article class="experience-card" data-card-index="2">
                         <header>
                             <div>
                                 <p class="experience-role">SDE L4 · Amazon</p>
@@ -92,7 +104,7 @@
                         </ul>
                     </article>
 
-                    <article class="experience-card" data-animate>
+                    <article class="experience-card" data-card-index="3">
                         <header>
                             <div>
                                 <p class="experience-role">Backend Developer · UniTicker</p>
