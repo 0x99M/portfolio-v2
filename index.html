@@ -1,227 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anonymous Developer Portfolio</title>
-    <meta name="description" content="Full-stack software engineer with 4+ years of experience building scalable SaaS platforms">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0x99M Portfolio</title>
+    <meta
+      name="description"
+      content="Full-stack software engineer with 4+ years of experience building scalable SaaS platforms"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <!-- Floating Background Shapes -->
     <div class="floating-shape"></div>
     <div class="floating-shape"></div>
-    
-    <!-- Section Indicator -->
+
+    <!-- Navbar -->
     <div class="section-indicator">
-        <a href="#hero" class="indicator-item" data-section="hero" title="Home">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Home</span>
-        </a>
-        <a href="#experience" class="indicator-item" data-section="experience" title="Experience">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Experience</span>
-        </a>
-        <a href="#skills" class="indicator-item" data-section="skills" title="Skills">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Skills</span>
-        </a>
-        <a href="#education" class="indicator-item" data-section="education" title="Education">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Education</span>
-        </a>
-        <a href="projects.html" class="indicator-item indicator-item-special" data-section="projects" title="Projects">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Projects</span>
-        </a>
+      <a href="#hero" class="logo-box">
+        <img src="favicon.svg" alt="Logo" class="logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="#hero" class="indicator-item">Home</a>
+        <a href="#experience" class="indicator-item">Experience</a>
+        <a href="#skills" class="indicator-item">Skills</a>
+        <a href="#education" class="indicator-item">Education</a>
+      </div>
+      <a
+        href="projects.html"
+        class="indicator-item indicator-item-projects"
+        title="Projects"
+      >
+        Projects
+      </a>
     </div>
 
     <main>
-        <section id="hero" class="section hero" data-animate>
-            <div class="container hero-layout">
-                <div class="hero-copy">
-                    <p class="eyebrow">Full-stack engineer</p>
-                    <h1>Designing reliable products with calm, intentional code.</h1>
-                    <p class="lead">
-                        4+ years building scalable SaaS, trading platforms, and loyalty systems with TypeScript, Python, and AWS.
-                        Focused on shipping resilient experiences that feel effortless to use.
-                    </p>
-                    <div class="cta">
-                        <a href="projects.html" class="btn ghost">Check My Live Projects</a>
-                    </div>
-                </div>
+      <section id="hero" class="section hero" data-animate>
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">Full-stack engineer</p>
+            <h1>Designing reliable products with calm, intentional code.</h1>
+            <p class="lead">
+              4+ years building scalable SaaS, trading platforms, and loyalty
+              systems with TypeScript, Python, and AWS. Focused on shipping
+              resilient experiences that feel effortless to use.
+            </p>
+            <div class="cta">
+              <a href="projects.html" class="btn ghost"
+                >Check My Live Projects</a
+              >
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="experience" class="section experience-section" data-animate>
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Experience</h2>
-                    <p>Leading end-to-end product delivery across SaaS, fintech, and infrastructure.</p>
+      <section id="experience" class="section experience-section" data-animate>
+        <div class="container">
+          <div class="section-heading">
+            <h2>Experience</h2>
+            <p>
+              Leading end-to-end product delivery across SaaS, fintech, and
+              infrastructure.
+            </p>
+          </div>
+          <div class="experience-stack">
+            <article class="experience-card" data-card-index="0" data-animate>
+              <header>
+                <div>
+                  <p class="experience-role">Software Engineer · Revest</p>
+                  <p class="experience-summary">
+                    Launching a loyalty platform that powers point-based rewards
+                    and targeted discounts.
+                  </p>
                 </div>
-                <div class="experience-stack">
-                    <article class="experience-card" data-card-index="0" data-animate>
-                        <header>
-                            <div>
-                                <p class="experience-role">Software Engineer · Revest</p>
-                                <p class="experience-summary">Launching a loyalty platform that powers point-based rewards and targeted discounts.</p>
-                            </div>
-                            <span class="experience-date">09/2025 – Present</span>
-                        </header>
-                        <ul>
-                            <li>Own end-to-end architecture from design sprints to production roll-out.</li>
-                        </ul>
-                    </article>
+                <span class="experience-date">09/2025 – Present</span>
+              </header>
+              <ul>
+                <li>
+                  Own end-to-end architecture from design sprints to production
+                  roll-out.
+                </li>
+              </ul>
+            </article>
 
-                    <article class="experience-card" data-card-index="1" data-animate>
-                        <header>
-                            <div>
-                                <p class="experience-role">Founding Engineer · Remote</p>
-                                <p class="experience-summary">Built AI-powered recipe intelligence and enterprise-grade trading tooling.</p>
-                            </div>
-                            <span class="experience-date">11/2023 – Present</span>
-                        </header>
-                        <ul>
-                            <li>Delivered a YouTube-to-recipe pipeline with subscription tiers on Fly.io.</li>
-                            <li>Developed multi-asset backtesting SaaS with Next.js, FastAPI, AWS, Auth0, and Paddle.</li>
-                        </ul>
-                    </article>
-
-                    <article class="experience-card" data-card-index="2" data-animate>
-                        <header>
-                            <div>
-                                <p class="experience-role">SDE L4 · Amazon</p>
-                                <p class="experience-summary">Scaled the Exchange Program Control Portal from 1 to 4 marketplaces.</p>
-                            </div>
-                            <span class="experience-date">08/2022 – 10/2023</span>
-                        </header>
-                        <ul>
-                            <li>Redesigned onboarding workflows, increasing expansion efficiency by 90%.</li>
-                            <li>Partnered across teams to deliver globally resilient architecture.</li>
-                        </ul>
-                    </article>
-
-                    <article class="experience-card" data-card-index="3" data-animate>
-                        <header>
-                            <div>
-                                <p class="experience-role">Backend Developer · UniTicker</p>
-                                <p class="experience-summary">Optimized market data infrastructure to unlock rapid product iteration.</p>
-                            </div>
-                            <span class="experience-date">08/2021 – 08/2022</span>
-                        </header>
-                        <ul>
-                            <li>Cut RAM usage by 71% through pipeline refactors and infrastructure tuning.</li>
-                            <li>Improved onboarding speed by 70% with modular data services.</li>
-                        </ul>
-                    </article>
+            <article class="experience-card" data-card-index="1" data-animate>
+              <header>
+                <div>
+                  <p class="experience-role">Founding Engineer · Remote</p>
+                  <p class="experience-summary">
+                    Built AI-powered recipe intelligence and enterprise-grade
+                    trading tooling.
+                  </p>
                 </div>
+                <span class="experience-date">11/2023 – Present</span>
+              </header>
+              <ul>
+                <li>
+                  Delivered a YouTube-to-recipe pipeline with subscription tiers
+                  on Fly.io.
+                </li>
+                <li>
+                  Developed multi-asset backtesting SaaS with Next.js, FastAPI,
+                  AWS, Auth0, and Paddle.
+                </li>
+              </ul>
+            </article>
+
+            <article class="experience-card" data-card-index="2" data-animate>
+              <header>
+                <div>
+                  <p class="experience-role">SDE L4 · Amazon</p>
+                  <p class="experience-summary">
+                    Scaled the Exchange Program Control Portal from 1 to 4
+                    marketplaces.
+                  </p>
+                </div>
+                <span class="experience-date">08/2022 – 10/2023</span>
+              </header>
+              <ul>
+                <li>
+                  Redesigned onboarding workflows, increasing expansion
+                  efficiency by 90%.
+                </li>
+                <li>
+                  Partnered across teams to deliver globally resilient
+                  architecture.
+                </li>
+              </ul>
+            </article>
+
+            <article class="experience-card" data-card-index="3" data-animate>
+              <header>
+                <div>
+                  <p class="experience-role">Backend Developer · UniTicker</p>
+                  <p class="experience-summary">
+                    Optimized market data infrastructure to unlock rapid product
+                    iteration.
+                  </p>
+                </div>
+                <span class="experience-date">08/2021 – 08/2022</span>
+              </header>
+              <ul>
+                <li>
+                  Cut RAM usage by 71% through pipeline refactors and
+                  infrastructure tuning.
+                </li>
+                <li>
+                  Improved onboarding speed by 70% with modular data services.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section" data-animate>
+        <div class="container">
+          <div class="section-heading">
+            <h2>Skills</h2>
+            <p>
+              Comfortable across the stack, from product thinking to
+              infrastructure.
+            </p>
+          </div>
+          <div class="skills-container">
+            <div class="skill-category" data-animate>
+              <h3 class="skill-category-title">
+                <span class="skill-icon">💻</span>
+                Languages
+              </h3>
+              <div class="skill-tags">
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Dart</span>
+              </div>
             </div>
-        </section>
-
-        <section id="skills" class="section" data-animate>
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Skills</h2>
-                    <p>Comfortable across the stack, from product thinking to infrastructure.</p>
-                </div>
-                <div class="skills-container">
-                    <div class="skill-category" data-animate>
-                        <h3 class="skill-category-title">
-                            <span class="skill-icon">💻</span>
-                            Languages
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">Dart</span>
-                        </div>
-                    </div>
-                    <div class="skill-category" data-animate>
-                        <h3 class="skill-category-title">
-                            <span class="skill-icon">🚀</span>
-                            Frameworks & Libraries
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Next.js</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">FastAPI</span>
-                            <span class="skill-tag">Flutter</span>
-                            <span class="skill-tag">Spring</span>
-                            <span class="skill-tag">Tailwind CSS</span>
-                        </div>
-                    </div>
-                    <div class="skill-category" data-animate>
-                        <h3 class="skill-category-title">
-                            <span class="skill-icon">☁️</span>
-                            Cloud & Infrastructure
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">AWS EC2</span>
-                            <span class="skill-tag">AWS S3</span>
-                            <span class="skill-tag">AWS Lambda</span>
-                            <span class="skill-tag">DynamoDB</span>
-                            <span class="skill-tag">AppRunner</span>
-                            <span class="skill-tag">RDS</span>
-                            <span class="skill-tag">REST APIs</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Shell Scripting</span>
-                        </div>
-                    </div>
-                    <div class="skill-category" data-animate>
-                        <h3 class="skill-category-title">
-                            <span class="skill-icon">🛠️</span>
-                            Tools & Platforms
-                        </h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">GitHub</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Postman</span>
-                            <span class="skill-tag">Paddle</span>
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">Jira</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="skill-category" data-animate>
+              <h3 class="skill-category-title">
+                <span class="skill-icon">🚀</span>
+                Frameworks & Libraries
+              </h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">FastAPI</span>
+                <span class="skill-tag">Flutter</span>
+                <span class="skill-tag">Spring</span>
+                <span class="skill-tag">Tailwind CSS</span>
+              </div>
             </div>
-        </section>
-
-        <section id="education" class="section" data-animate>
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Education</h2>
-                    <p>Computer Science, University of Jordan · GPA 3.66/4.00</p>
-                </div>
-                <div class="education-card" data-animate>
-                    <div>
-                        <p class="education-period">2017 – 2021</p>
-                        <p class="education-role">Bachelor’s in Computer Science</p>
-                    </div>
-                    <ul>
-                        <li>Active judge, tester, and trainer in programming contests (1,500+ problems solved).</li>
-                        <li>Jordanian University Collegiate Programming Contest 2020 – Gold (2nd).</li>
-                        <li>Jordanian Collegiate Programming Contest 2020 – Bronze (10th).</li>
-                        <li>Jordanian University Collegiate Programming Contest 2019 – Gold (3rd).</li>
-                    </ul>
-                </div>
+            <div class="skill-category" data-animate>
+              <h3 class="skill-category-title">
+                <span class="skill-icon">☁️</span>
+                Cloud & Infrastructure
+              </h3>
+              <div class="skill-tags">
+                <span class="skill-tag">AWS EC2</span>
+                <span class="skill-tag">AWS S3</span>
+                <span class="skill-tag">AWS Lambda</span>
+                <span class="skill-tag">DynamoDB</span>
+                <span class="skill-tag">AppRunner</span>
+                <span class="skill-tag">RDS</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Shell Scripting</span>
+              </div>
             </div>
-        </section>
+            <div class="skill-category" data-animate>
+              <h3 class="skill-category-title">
+                <span class="skill-icon">🛠️</span>
+                Tools & Platforms
+              </h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Postman</span>
+                <span class="skill-tag">Paddle</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Jira</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section" data-animate>
+        <div class="container">
+          <div class="section-heading">
+            <h2>Education</h2>
+            <p>Computer Science, University of Jordan · GPA 3.66/4.00</p>
+          </div>
+          <div class="education-card" data-animate>
+            <div>
+              <p class="education-period">2017 – 2021</p>
+              <p class="education-role">Bachelor’s in Computer Science</p>
+            </div>
+            <ul>
+              <li>
+                Active judge, tester, and trainer in programming contests
+                (1,500+ problems solved).
+              </li>
+              <li>
+                Jordanian University Collegiate Programming Contest 2020 – Gold
+                (2nd).
+              </li>
+              <li>
+                Jordanian Collegiate Programming Contest 2020 – Bronze (10th).
+              </li>
+              <li>
+                Jordanian University Collegiate Programming Contest 2019 – Gold
+                (3rd).
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>Built with intention · 2025</p>
-            <a href="mailto:me@0x99m.com">me@0x99m.com</a>
-        </div>
+      <div class="container">
+        <p>Built with intention · 2025</p>
+        <a href="mailto:me@0x99m.com">me@0x99m.com</a>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
-

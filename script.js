@@ -69,7 +69,7 @@ const handleSmoothScroll = () => {
 
         link.addEventListener('click', event => {
             event.preventDefault();
-            const offset = targetElement.getBoundingClientRect().top + window.scrollY - 32;
+            const offset = targetElement.getBoundingClientRect().top + window.scrollY - 72;
 
             window.scrollTo({
                 top: offset,
@@ -80,18 +80,12 @@ const handleSmoothScroll = () => {
 };
 
 const handleActiveNav = () => {
-    const links = Array.from(document.querySelectorAll('.section-indicator a[href^="#"]'))
-        .filter(link => link.pathname === window.location.pathname);
+    const links = Array.from(document.querySelectorAll('.section-indicator a[href^="#"]'));
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    
+    if (!links.length || !sections.length) return;
 
-    if (!links.length) return;
-
-    const sections = links
-        .map(link => document.querySelector(link.getAttribute('href')))
-        .filter(Boolean);
-
-    if (!sections.length) return;
-
-    const setActiveLink = () => {
+    const setActiveSection = () => {
         const offset = window.scrollY + 100;
         let currentSection = sections[0];
 
@@ -102,15 +96,15 @@ const handleActiveNav = () => {
         });
 
         links.forEach(link => {
-            const isCurrent = currentSection && link.getAttribute('href') === `#${currentSection.id}`;
+            const isCurrent = link.getAttribute('href') === `#${currentSection.id}`;
             link.classList.toggle('is-active', isCurrent);
         });
     };
 
-    window.addEventListener('scroll', setActiveLink, { passive: true });
-    window.addEventListener('resize', setActiveLink);
+    window.addEventListener('scroll', setActiveSection, { passive: true });
+    window.addEventListener('resize', setActiveSection);
 
-    setActiveLink();
+    setActiveSection();
 };
 
 const setupAnimations = () => {
@@ -140,7 +134,39 @@ function refreshAnimations() {
 
 window.refreshAnimations = refreshAnimations;
 
+// Prevent scroll restoration and ensure page starts at top
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Ensure page starts at top on load (unless there's an intentional hash)
+window.addEventListener('load', () => {
+    // Only scroll to hash if it's in the URL when page loads (user clicked a link)
+    if (window.location.hash) {
+        const hash = window.location.hash;
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+            // Use setTimeout to ensure smooth scroll works properly
+            setTimeout(() => {
+                const offset = targetElement.getBoundingClientRect().top + window.scrollY - 72;
+                window.scrollTo({
+                    top: offset,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    } else {
+        // No hash, ensure we're at the top
+        window.scrollTo(0, 0);
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Immediately prevent any scrolling until page is ready
+    if (!window.location.hash) {
+        window.scrollTo(0, 0);
+    }
+    
     handleSmoothScroll();
     handleActiveNav();
     setupAnimations();
