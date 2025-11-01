@@ -2,7 +2,7 @@ let animationObserver;
 
 // Add hover effect for cards with tilt
 const setupCardTilt = () => {
-    const cards = document.querySelectorAll('.experience-card, .skill-column, .project-card');
+    const cards = document.querySelectorAll('.experience-card, .skill-column');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', (e) => {
