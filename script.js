@@ -2,7 +2,7 @@ let animationObserver;
 
 // Add hover effect for cards with tilt
 const setupCardTilt = () => {
-    const cards = document.querySelectorAll('.experience-card, .skill-column');
+    const cards = document.querySelectorAll('.skill-column');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', (e) => {
@@ -140,80 +140,12 @@ function refreshAnimations() {
 
 window.refreshAnimations = refreshAnimations;
 
-// Experience Card Stack Effect
-const setupExperienceStack = () => {
-    const stack = document.querySelector('.experience-stack');
-    if (!stack) return;
-
-    const cards = Array.from(stack.querySelectorAll('.experience-card'));
-    if (!cards.length) return;
-
-    const cardCount = cards.length;
-    const baseStackHeight = cardCount * 110;
-
-    const setStackHeight = () => {
-        stack.style.minHeight = `${baseStackHeight}vh`;
-    };
-
-    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-
-    const updateCardStates = () => {
-        const viewportHeight = window.innerHeight;
-        const stackRect = stack.getBoundingClientRect();
-        const stackTop = window.scrollY + stackRect.top;
-        const stackHeight = stackRect.height || viewportHeight;
-
-        const scrollCenter = window.scrollY + viewportHeight * 0.45;
-        const rawProgress = (scrollCenter - stackTop) / (stackHeight - viewportHeight * 0.5);
-        const progress = clamp(rawProgress, 0, 1);
-        const activeIndex = progress * (cardCount - 1);
-
-        cards.forEach((card, index) => {
-            const distance = index - activeIndex;
-            const absDistance = Math.abs(distance);
-
-            const translateY = distance * 70;
-            const scale = 1 - clamp(absDistance * 0.12, 0, 0.45);
-            const opacity = 1 - clamp(absDistance * 0.5, 0, 0.75);
-
-            card.style.transform = `translateY(${translateY}px) scale(${scale})`;
-            card.style.opacity = opacity;
-            card.style.zIndex = String(cardCount * 10 - Math.round(absDistance * 10));
-
-            card.classList.toggle('is-active', absDistance < 0.3);
-            card.classList.toggle('is-behind', distance < -0.3);
-            card.classList.toggle('is-ahead', distance > 0.3);
-        });
-    };
-
-    let ticking = false;
-    const requestUpdate = () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                updateCardStates();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    };
-
-    window.addEventListener('scroll', requestUpdate, { passive: true });
-    window.addEventListener('resize', () => {
-        setStackHeight();
-        updateCardStates();
-    });
-
-    setStackHeight();
-    updateCardStates();
-};
-
 document.addEventListener('DOMContentLoaded', () => {
     handleSmoothScroll();
     handleActiveNav();
     setupAnimations();
     setupCardTilt();
     setupParallax();
-    setupExperienceStack();
     
     // Re-initialize card tilt when projects are loaded
     if (window.location.pathname.includes('projects.html')) {
