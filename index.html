@@ -27,19 +27,30 @@
       <a href="#hero" class="logo-box">
         <img src="favicon.svg" alt="Logo" class="logo-img" />
       </a>
-      <div class="nav-links">
-        <a href="#hero" class="indicator-item">Home</a>
-        <a href="#experience" class="indicator-item">Experience</a>
-        <a href="#skills" class="indicator-item">Skills</a>
-        <a href="#education" class="indicator-item">Education</a>
-      </div>
-      <a
-        href="projects.html"
-        class="indicator-item indicator-item-projects"
-        title="Projects"
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Toggle navigation"
       >
-        Projects
-      </a>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <div class="nav-links" id="primary-navigation">
+        <div class="nav-links-primary">
+          <a href="#hero" class="indicator-item">Home</a>
+          <a href="#experience" class="indicator-item">Experience</a>
+          <a href="#skills" class="indicator-item">Skills</a>
+          <a href="#education" class="indicator-item">Education</a>
+        </div>
+        <a
+          href="projects.html"
+          class="indicator-item indicator-item-projects"
+          title="Projects"
+        >
+          Projects
+        </a>
+      </div>
     </div>
 
     <main>

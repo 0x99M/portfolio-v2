@@ -24,18 +24,29 @@
       <a href="index.html" class="logo-box">
         <img src="favicon.svg" alt="Logo" class="logo-img" />
       </a>
-      <div class="nav-links">
-        <a href="index.html#hero" class="indicator-item">Home</a>
-        <a href="index.html#experience" class="indicator-item">Experience</a>
-        <a href="index.html#skills" class="indicator-item">Skills</a>
-        <a href="index.html#education" class="indicator-item">Education</a>
-      </div>
-      <a
-        href="projects.html"
-        class="indicator-item indicator-item-projects is-active"
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Toggle navigation"
       >
-        Projects
-      </a>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <div class="nav-links" id="primary-navigation">
+        <div class="nav-links-primary">
+          <a href="index.html#hero" class="indicator-item">Home</a>
+          <a href="index.html#experience" class="indicator-item">Experience</a>
+          <a href="index.html#skills" class="indicator-item">Skills</a>
+          <a href="index.html#education" class="indicator-item">Education</a>
+        </div>
+        <a
+          href="projects.html"
+          class="indicator-item indicator-item-projects is-active"
+        >
+          Projects
+        </a>
+      </div>
     </div>
 
     <main>

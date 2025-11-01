@@ -53,6 +53,10 @@ body {
   position: relative;
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
 main {
   padding-top: 5rem;
 }
@@ -158,8 +162,84 @@ a {
 
 .nav-links {
   display: flex;
-  gap: 1rem;
   align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.nav-links-primary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-btn);
+  background: var(--color-page);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 200ms var(--transition), box-shadow 200ms var(--transition);
+}
+
+.nav-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.nav-toggle-bar {
+  position: relative;
+  width: 18px;
+  height: 2px;
+  background: var(--color-accent);
+  transition: background 200ms ease;
+}
+
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--color-accent);
+  transition: transform 200ms ease, top 200ms ease, opacity 200ms ease;
+}
+
+.nav-toggle-bar::before {
+  top: -6px;
+}
+
+.nav-toggle-bar::after {
+  top: 6px;
+}
+
+.nav-toggle.is-active .nav-toggle-bar {
+  background: transparent;
+}
+
+.nav-toggle.is-active .nav-toggle-bar::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-toggle.is-active .nav-toggle-bar::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.section-indicator.is-menu-open .nav-toggle {
+  box-shadow: var(--shadow-md);
 }
 
 .indicator-item {
@@ -220,6 +300,61 @@ a {
 .indicator-item-projects::after {
   content: "↗";
   font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .section-indicator {
+    gap: 0.75rem;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: clamp(1rem, 5vw, var(--space-lg));
+    left: clamp(1rem, 5vw, var(--space-lg));
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-page);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    margin-left: 0;
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+
+  .nav-links-primary {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+  }
+
+  .nav-links .indicator-item,
+  .nav-links .indicator-item-projects {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section-indicator.is-menu-open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .indicator-item-projects {
+    margin-left: 0;
+  }
 }
 
 /* Hero Section - Gumroad Style */

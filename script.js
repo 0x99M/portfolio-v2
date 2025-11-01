@@ -55,6 +55,60 @@ const setupParallax = () => {
     window.addEventListener('scroll', requestTick, { passive: true });
 };
 
+const setupNavToggle = () => {
+    const nav = document.querySelector('.section-indicator');
+    if (!nav) return;
+
+    const toggle = nav.querySelector('.nav-toggle');
+    const navLinks = nav.querySelector('.nav-links');
+
+    if (!toggle || !navLinks) return;
+
+    const setMenuState = (isOpen) => {
+        nav.classList.toggle('is-menu-open', isOpen);
+        toggle.classList.toggle('is-active', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', isOpen);
+    };
+
+    const closeMenu = () => {
+        if (!nav.classList.contains('is-menu-open')) return;
+        setMenuState(false);
+    };
+
+    toggle.addEventListener('click', () => {
+        const isOpen = !nav.classList.contains('is-menu-open');
+        setMenuState(isOpen);
+        if (isOpen) {
+            toggle.focus();
+        }
+    });
+
+    navLinks.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (!link) return;
+        closeMenu();
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!nav.classList.contains('is-menu-open')) return;
+        if (nav.contains(event.target)) return;
+        closeMenu();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMenu();
+        }
+    });
+};
+
 const handleSmoothScroll = () => {
     const links = Array.from(document.querySelectorAll('.section-indicator a[href^="#"]'));
     if (!links.length) return;
@@ -167,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, 0);
     }
     
+    setupNavToggle();
     handleSmoothScroll();
     handleActiveNav();
     setupAnimations();
