@@ -1,116 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects - Anonymous Developer</title>
-    <meta name="description" content="My portfolio of projects and work">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <meta name="description" content="My portfolio of projects and work" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <!-- Floating Background Shapes -->
     <div class="floating-shape"></div>
     <div class="floating-shape"></div>
-    
+
     <!-- Section Indicator -->
     <div class="section-indicator">
-        <a href="index.html#hero" class="indicator-item" data-section="hero" title="Home">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Home</span>
-        </a>
-        <a href="index.html#experience" class="indicator-item" data-section="experience" title="Experience">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Experience</span>
-        </a>
-        <a href="index.html#skills" class="indicator-item" data-section="skills" title="Skills">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Skills</span>
-        </a>
-        <a href="index.html#education" class="indicator-item" data-section="education" title="Education">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Education</span>
-        </a>
-        <a href="projects.html" class="indicator-item indicator-item-special is-active" data-section="projects" title="Projects">
-            <span class="indicator-dot"></span>
-            <span class="indicator-label">Projects</span>
-        </a>
+      <a
+        href="index.html#hero"
+        class="indicator-item"
+        data-section="hero"
+        title="Home"
+      >
+        <span class="indicator-dot"></span>
+        <span class="indicator-label">Home</span>
+      </a>
+      <a
+        href="index.html#experience"
+        class="indicator-item"
+        data-section="experience"
+        title="Experience"
+      >
+        <span class="indicator-dot"></span>
+        <span class="indicator-label">Experience</span>
+      </a>
+      <a
+        href="index.html#skills"
+        class="indicator-item"
+        data-section="skills"
+        title="Skills"
+      >
+        <span class="indicator-dot"></span>
+        <span class="indicator-label">Skills</span>
+      </a>
+      <a
+        href="index.html#education"
+        class="indicator-item"
+        data-section="education"
+        title="Education"
+      >
+        <span class="indicator-dot"></span>
+        <span class="indicator-label">Education</span>
+      </a>
+      <a
+        href="projects.html"
+        class="indicator-item indicator-item-special is-active"
+        data-section="projects"
+        title="Projects"
+      >
+        <span class="indicator-dot"></span>
+        <span class="indicator-label">Projects</span>
+      </a>
     </div>
 
     <main>
-        <section class="section hero projects-hero" data-animate>
-            <div class="container narrow">
-                <p class="eyebrow">Selected work</p>
-                <h1>Projects</h1>
-                <p class="lead">
-                    A living archive of products, experiments, and client work. Ideal for verification by partners and payment providers.
-                </p>
-            </div>
-        </section>
+      <section class="section hero projects-hero" data-animate>
+        <div class="container narrow">
+          <p class="eyebrow">Selected work</p>
+          <h1>Projects</h1>
+          <p class="lead">
+            A living archive of products, experiments, and client work. Ideal
+            for verification by partners and payment providers.
+          </p>
+        </div>
+      </section>
 
-        <section class="section" data-animate>
-            <div class="container">
-                <div id="projects-grid" class="project-grid">
-                    <div class="loading">Loading projects…</div>
-                </div>
-            </div>
-        </section>
+      <section class="section" data-animate>
+        <div class="container">
+          <div id="projects-grid" class="project-grid">
+            <!-- Projects will be loaded here -->
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>Built with intention · 2025</p>
-            <a href="mailto:me@0x99m.com">me@0x99m.com</a>
-        </div>
+      <div class="container">
+        <p>Built with intention · 2025</p>
+        <a href="mailto:me@0x99m.com">me@0x99m.com</a>
+      </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        async function loadProjects() {
-            const projectsGrid = document.getElementById('projects-grid');
+      (function () {
+        const projectsData = {
+          projects: [
+            {
+              title: "Videos.Recipes",
+              description:
+                "AI-powered SaaS platform that converts YouTube cooking videos into structured, searchable recipes. Features tiered subscription model and real-time processing.",
+              image: "images/videos-recipes.png",
+              link: "https://videos.recipes",
+              technologies: [
+                "Next.js",
+                "TypeScript",
+                "PostgreSQL",
+                "DrizzleORM",
+                "Clerk Auth",
+                "Fly.io",
+              ],
+            },
+          ],
+        };
 
-            try {
-                const response = await fetch('projects.json');
-                const data = await response.json();
+        const projectsGrid = document.getElementById("projects-grid");
 
-                if (!data.projects || data.projects.length === 0) {
-                    projectsGrid.innerHTML = '<p class="muted">No projects available yet. Check back soon.</p>';
-                    return;
-                }
-
-                projectsGrid.innerHTML = data.projects.map((project, index) => `
-                    <article class="project-card" data-animate style="--delay:${index * 80}ms">
-                        <div class="project-media">
-                            <img src="${project.image}" alt="${project.title}" loading="lazy" />
-                        </div>
-                        <div class="project-body">
-                            <h2>${project.title}</h2>
-                            <p>${project.description}</p>
-                            ${project.technologies ? `
-                                <ul class="project-tags">
-                                    ${project.technologies.map(tech => `<li>${tech}</li>`).join('')}
-                                </ul>
-                            ` : ''}
-                            <a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">
-                                View project
-                            </a>
-                        </div>
-                    </article>
-                `).join('');
-
-                if (typeof window.refreshAnimations === 'function') {
-                    window.refreshAnimations();
-                }
-            } catch (error) {
-                console.error('Error loading projects:', error);
-                projectsGrid.innerHTML = '<p class="error">Unable to load projects. Please try again later.</p>';
-            }
+        if (!projectsData.projects || projectsData.projects.length === 0) {
+          projectsGrid.innerHTML =
+            '<p class="muted">No projects available yet. Check back soon.</p>';
+          return;
         }
 
-        document.addEventListener('DOMContentLoaded', loadProjects);
-    </script>
-</body>
-</html>
+        projectsGrid.innerHTML = projectsData.projects
+          .map(
+            (project, index) => `
+                  <article class="project-card" data-animate style="--delay:${
+                    index * 80
+                  }ms">
+                      <div class="project-media">
+                          <img src="${project.image}" alt="${
+              project.title
+            }" loading="lazy" />
+                      </div>
+                      <div class="project-body">
+                          <h2>${project.title}</h2>
+                          <p>${project.description}</p>
+                          ${
+                            project.technologies
+                              ? `
+                              <ul class="project-tags">
+                                  ${project.technologies
+                                    .map((tech) => `<li>${tech}</li>`)
+                                    .join("")}
+                              </ul>
+                          `
+                              : ""
+                          }
+                          <a class="project-link" href="${
+                            project.link
+                          }" target="_blank" rel="noopener noreferrer">
+                              View project
+                          </a>
+                      </div>
+                  </article>
+              `
+          )
+          .join("");
 
+        if (typeof window.refreshAnimations === "function") {
+          window.refreshAnimations();
+        }
+      })();
+    </script>
+  </body>
+</html>

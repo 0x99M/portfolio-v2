@@ -32,7 +32,8 @@
   --space-lg: 2.5rem;
   --space-xl: 4rem;
   --space-xxl: 6rem;
-  --font-body: "Comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
   --font-display: "Comfortaa", "Arial Black", Arial, sans-serif;
   --transition: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -300,7 +301,6 @@ h1 {
 
 .lead {
   font-size: clamp(1.1rem, 2vw, 1.3rem);
-  margin-bottom: var(--space-lg);
   color: var(--color-text-light);
   line-height: 1.6;
 }
@@ -420,23 +420,6 @@ h1 {
   display: grid;
   gap: var(--space-md);
   transition: box-shadow 280ms ease, border-color 280ms ease;
-}
-
-.experience-card.is-active {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18);
-  border-color: var(--color-accent);
-}
-
-.experience-card.is-behind {
-  transform: none;
-  opacity: 1;
-}
-
-.experience-card.is-ahead {
-  transform: none;
-  opacity: 1;
 }
 
 .experience-card[data-card-index="0"] {
@@ -564,7 +547,8 @@ h1 {
 
 .skill-tag:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 0 var(--color-border), inset 0 0 0 2px var(--color-border);
+  box-shadow: 5px 5px 0 0 var(--color-border),
+    inset 0 0 0 2px var(--color-border);
 }
 
 /* Removed hover color changes for cleaner, consistent badges */
@@ -641,7 +625,9 @@ h1 {
   border-radius: var(--border-radius);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: opacity 600ms cubic-bezier(0.34, 1.56, 0.64, 1), transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 600ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
   opacity: 0;
   transform: translateY(20px);
   animation-delay: var(--delay, 0ms);
@@ -764,6 +750,98 @@ h1 {
   font-size: 1.1rem;
 }
 
+/* Skeleton Loading Card */
+.project-card-skeleton {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.project-media-skeleton {
+  height: 240px;
+  background: var(--color-page);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-shimmer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-text {
+  height: 1em;
+  background: var(--color-page);
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-title {
+  height: 1.8em;
+  width: 60%;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-line {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-line:last-of-type {
+  width: 75%;
+}
+
+.skeleton-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+}
+
+.skeleton-tag {
+  height: 1.8em;
+  width: 70px;
+  background: var(--color-page);
+  border-radius: 999px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-link {
+  height: 3em;
+  width: 150px;
+  background: var(--color-page);
+  border-radius: var(--border-radius);
+  margin-top: 0.5rem;
+  animation: pulse 1.5s ease-in-out infinite;
+  justify-self: end;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
 /* Footer - Gumroad Style */
 .site-footer {
   margin: var(--space-xl) auto 1rem;
@@ -783,6 +861,7 @@ h1 {
   gap: var(--space-md);
   font-size: 0.95rem;
   font-weight: 600;
+  padding: 0;
 }
 
 .site-footer a {
@@ -885,11 +964,11 @@ h1 {
   .experience-card {
     padding: clamp(1.4rem, 3.4vw, 2.2rem);
   }
-  
+
   .education-card {
     max-width: min(100%, 700px);
   }
-  
+
   .experience-stack {
     max-width: min(100%, 700px);
   }
@@ -897,7 +976,7 @@ h1 {
   .skill-tags {
     gap: 0.6rem;
   }
-  
+
   .skill-tag {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
@@ -905,6 +984,11 @@ h1 {
 
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer .container {
+    justify-content: center;
+    text-align: center;
   }
 }
 
@@ -944,17 +1028,12 @@ h1 {
   }
 
   .experience-card {
-    top: clamp(48px, 14vh, 110px);
     padding: var(--space-md);
     max-width: min(100%, 640px);
   }
-  
+
   .education-card {
     max-width: min(100%, 640px);
-  }
-  
-  .experience-card[data-card-index="3"] {
-    margin-bottom: 0;
   }
 
   h1 {
@@ -969,6 +1048,16 @@ h1 {
   .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .site-footer {
+    margin: var(--space-lg) var(--space-md) var(--space-md);
+    padding: var(--space-md);
+  }
+
+  .site-footer .container {
+    flex-direction: column;
+    gap: var(--space-sm);
   }
 }
 
