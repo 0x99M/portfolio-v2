@@ -8,6 +8,7 @@ COPY 404.html /usr/share/nginx/html/
 COPY styles.css /usr/share/nginx/html/
 COPY script.js /usr/share/nginx/html/
 COPY projects.json /usr/share/nginx/html/
+COPY favicon.svg /usr/share/nginx/html/
 COPY images /usr/share/nginx/html/images
 
 # Copy custom nginx configuration
