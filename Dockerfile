@@ -14,7 +14,7 @@ COPY images /usr/share/nginx/html/images
 # Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 8080 (fly.io default)
+# Expose port 8080 for Railway/nginx
 EXPOSE 8080
 
 # Start nginx

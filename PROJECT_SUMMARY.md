@@ -22,7 +22,6 @@ Your minimal anonymous portfolio website is ready for deployment!
 ### Deployment
 - ✅ **Dockerfile** - Nginx container configuration
 - ✅ **nginx.conf** - Web server configuration with security headers
-- ✅ **fly.toml** - Fly.io deployment configuration
 - ✅ **.gitignore** - Git ignore rules
 
 ### Documentation
@@ -99,25 +98,25 @@ python3 -m http.server 8000
 # Visit http://localhost:8000
 ```
 
-### 3. Deploy to Fly.io
+### 3. Deploy to Railway
 ```bash
-# Install Fly CLI
-curl -L https://fly.io/install.sh | sh
+# Install Railway CLI
+npm i -g @railway/cli
 
 # Login
-flyctl auth login
+railway login
 
 # Deploy
-flyctl launch
-flyctl deploy
+railway init --new
+railway up
 
 # Open your site
-flyctl open
+railway open
 ```
 
 ### 4. Add Custom Domain (Optional)
 ```bash
-flyctl certs add yourdomain.com
+railway domains add yourdomain.com
 ```
 
 ## 📁 Project Structure
@@ -136,7 +135,6 @@ portfolio-v2/
 │   └── loyalty-system.svg
 ├── Dockerfile              # Container config
 ├── nginx.conf              # Server config
-├── fly.toml                # Fly.io config
 ├── .gitignore              # Git ignore
 ├── README.md               # Full documentation
 ├── QUICKSTART.md           # Quick deploy guide
@@ -160,7 +158,7 @@ portfolio-v2/
 - [x] 404 error page
 - [x] Security headers
 - [x] Performance optimizations
-- [x] Fly.io deployment ready
+- [x] Railway deployment ready
 
 ## 💡 Tips for Success
 
@@ -175,9 +173,9 @@ portfolio-v2/
 - [ ] Add real project images
 - [ ] Update project links in projects.json
 - [ ] Test locally (python3 -m http.server)
-- [ ] Install Fly.io CLI
-- [ ] Run `flyctl launch`
-- [ ] Run `flyctl deploy`
+- [ ] Install Railway CLI
+- [ ] Run `railway init --new`
+- [ ] Run `railway up`
 - [ ] Visit your live site!
 - [ ] (Optional) Add custom domain
 

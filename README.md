@@ -11,7 +11,7 @@ A minimal, clean, and modern portfolio website built with vanilla HTML, CSS, and
 - 🖼️ **Image Support** - Beautiful project showcases with hover effects
 - ✨ **Simple Animations** - IntersectionObserver-powered fade-up reveals
 - 🔒 **Anonymous** - No personal identifiers, privacy-focused
-- ☁️ **Cloud Ready** - Configured for Fly.io deployment
+- ☁️ **Cloud Ready** - Works out of the box on Railway using the provided Dockerfile
 
 ## Project Structure
 
@@ -25,7 +25,6 @@ portfolio-v2/
 ├── images/             # Project images directory
 ├── Dockerfile          # Container configuration
 ├── nginx.conf          # Web server configuration
-├── fly.toml            # Fly.io deployment config
 └── README.md           # This file
 ```
 
@@ -73,79 +72,55 @@ Edit `projects.json` to add, update, or remove projects:
    - Size: 1200x800px (3:2 aspect ratio)
    - File size: < 500KB for optimal loading
 
-## Deployment to Fly.io
+## Deployment to Railway
 
 ### Prerequisites
 
-1. Install the Fly.io CLI:
+1. Create a free account at [Railway](https://railway.app/)
+2. (Optional) Install the Railway CLI: `npm i -g @railway/cli`
+
+### Deploy Steps (Dashboard)
+
+1. Create a new project and select **Deploy from GitHub** or **Deploy from Repo**
+2. Point Railway to this repository and keep the default Docker deployment
+3. Set the environment variable `PORT=8080` (Railway auto-injects `PORT`, but setting it explicitly avoids warnings)
+4. Click **Deploy** – the provided `Dockerfile` serves the site with nginx on port 8080
+5. Once the build finishes, open the generated domain under **Settings → Domains**
+
+### Deploy Steps (CLI)
+
+1. Authenticate: `railway login`
+2. From the project root run:
 ```bash
-curl -L https://fly.io/install.sh | sh
+railway init --new
+railway up
 ```
-
-2. Sign up and log in:
-```bash
-flyctl auth signup
-# or
-flyctl auth login
-```
-
-### Deploy Steps
-
-1. **Initialize the app** (first time only):
-```bash
-flyctl launch
-```
-When prompted:
-- Use the existing `fly.toml` configuration: **Yes**
-- Would you like to set up a PostgreSQL database: **No**
-- Would you like to set up a Redis database: **No**
-- Would you like to deploy now: **No** (we'll do it manually)
-
-2. **Update the app name** in `fly.toml` if needed:
-```toml
-app = "your-unique-app-name"
-```
-
-3. **Deploy your site**:
-```bash
-flyctl deploy
-```
-
-4. **Open your deployed site**:
-```bash
-flyctl open
-```
+Railway detects the Dockerfile and builds/publishes the container automatically
 
 ### Update Deployment
 
-After making changes, redeploy with:
+After pushing changes to your main branch (or from the CLI), trigger a redeploy:
 ```bash
-flyctl deploy
+railway up
 ```
 
-### Useful Fly.io Commands
+### Useful Railway Commands
 
 ```bash
-# Check app status
-flyctl status
+# Check currently linked project/service
+railway status
 
-# View logs
-flyctl logs
+# Tail logs
+railway logs
 
-# Open app in browser
-flyctl open
+# List generated domains
+railway domains
 
-# SSH into the container
-flyctl ssh console
+# Open the project dashboard in your browser
+railway open
 
-# Check resource usage
-flyctl monitor
-
-# Scale the app
-flyctl scale vm shared-cpu-1x --memory 256
-
-# Delete the app
-flyctl apps destroy your-app-name
+# Remove the project/service
+railway down --delete
 ```
 
 ## Customization
@@ -213,16 +188,16 @@ This is a personal portfolio template. Feel free to use and modify as needed.
 ## Support
 
 For issues or questions about deployment, refer to:
-- [Fly.io Documentation](https://fly.io/docs/)
+- [Railway Documentation](https://docs.railway.app/)
 - [Nginx Documentation](https://nginx.org/en/docs/)
 
 ## Tips
 
-1. **Custom Domain**: Use `flyctl certs add your-domain.com` to add a custom domain
-2. **Environment Variables**: Add secrets with `flyctl secrets set KEY=value`
-3. **Multiple Regions**: Deploy to multiple regions for better global performance
-4. **Scaling**: Start with minimal resources (256MB) and scale as needed
-5. **Cost**: Fly.io offers a free tier that's perfect for static sites
+1. **Custom Domain**: Add domains in the Railway dashboard under **Settings → Domains**
+2. **Environment Variables**: Manage secrets in **Variables** and Railway injects them at runtime
+3. **Metrics**: Monitor deploys, logs, and usage from the Railway dashboard
+4. **Scaling**: Upgrade service plans or adjust concurrency from the **Deployments** tab
+5. **Cost**: Railway’s free tier comfortably hosts this static site
 
 ---
 
