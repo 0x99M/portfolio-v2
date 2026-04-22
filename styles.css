@@ -808,7 +808,7 @@ h1 {
 .project-grid {
   display: grid;
   gap: var(--space-lg);
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
 }
 
 /* Project Cards - Gumroad Style */
