@@ -695,6 +695,38 @@ h1 {
   font-weight: 700;
 }
 
+.project-title-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: inherit;
+  transition: color 200ms var(--transition), gap 200ms var(--transition);
+}
+
+.project-title-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.project-title-link::after {
+  content: "→";
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  transition: color 200ms var(--transition), transform 200ms var(--transition);
+}
+
+.project-card:hover .project-title-link {
+  color: var(--color-accent);
+  gap: 0.65rem;
+}
+
+.project-card:hover .project-title-link::after {
+  color: var(--color-accent);
+  transform: translateX(2px);
+}
+
 .project-body p {
   font-size: 0.95rem;
   color: var(--color-text-muted);
@@ -744,27 +776,6 @@ h1 {
   color: var(--color-text-muted);
   background: var(--color-surface-2);
   border-radius: var(--border-radius-pill);
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  margin-top: 0.25rem;
-  transition: gap 200ms var(--transition), color 200ms var(--transition);
-}
-
-.project-link:hover {
-  gap: 0.7rem;
-  color: var(--color-text);
-}
-
-.project-link::after {
-  content: "→";
-  font-size: 1rem;
 }
 
 /* Utility */
