@@ -537,6 +537,18 @@ h1 {
   border-radius: 1px;
 }
 
+.inline-link {
+  color: var(--color-accent);
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border-strong);
+  transition: border-color 200ms var(--transition), color 200ms var(--transition);
+}
+
+.inline-link:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
 /* Skills */
 .skills-container {
   max-width: var(--card-width);
@@ -714,6 +726,34 @@ h1 {
   font-size: 0.95rem;
   color: var(--color-text-muted);
   line-height: 1.65;
+}
+
+.project-highlights {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+  padding-top: 0.9rem;
+  border-top: var(--border-width) solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.project-highlights li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.project-highlights li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.5rem;
+  height: 1.5px;
+  background: var(--color-primary);
+  border-radius: 1px;
 }
 
 .project-tags {
