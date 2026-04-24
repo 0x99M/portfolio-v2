@@ -1,33 +1,5 @@
 let animationObserver;
 
-const setupThemeToggle = () => {
-    const toggleButtons = document.querySelectorAll('.theme-toggle');
-    if (!toggleButtons.length) return;
-
-    const toggleTheme = () => {
-        const html = document.documentElement;
-        const current = html.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-
-        html.classList.add('theme-transitioning');
-        html.setAttribute('data-theme', next);
-        localStorage.setItem('theme-preference', next);
-
-        setTimeout(() => {
-            html.classList.remove('theme-transitioning');
-        }, 350);
-    };
-
-    toggleButtons.forEach(btn => {
-        btn.addEventListener('click', toggleTheme);
-    });
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (localStorage.getItem('theme-preference')) return;
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-    });
-};
-
 const setupNavToggle = () => {
     const nav = document.querySelector('.section-indicator');
     if (!nav) return;
@@ -188,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, 0);
     }
 
-    setupThemeToggle();
     setupNavToggle();
     handleSmoothScroll();
     handleActiveNav();
