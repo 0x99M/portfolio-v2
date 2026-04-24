@@ -411,13 +411,8 @@ h1 {
   box-shadow: var(--shadow-sm);
   display: grid;
   gap: 1.25rem;
-  transition: transform 300ms var(--transition),
-    box-shadow 300ms var(--transition);
-}
-
-.experience-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  position: relative;
+  isolation: isolate;
 }
 
 .experience-card header {
@@ -551,6 +546,54 @@ h1 {
   box-shadow: var(--shadow-sm);
   display: grid;
   gap: 1.25rem;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Animated border on card hover */
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.experience-card::before,
+.project-card::before,
+.education-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    transparent 240deg,
+    var(--color-primary) 300deg,
+    var(--color-accent) 330deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 300ms var(--transition);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.experience-card:hover::before,
+.project-card:hover::before,
+.education-card:hover::before {
+  opacity: 1;
+  animation: rotate-border 3.5s linear infinite;
+}
+
+@keyframes rotate-border {
+  to {
+    --border-angle: 360deg;
+  }
 }
 
 .education-period {
@@ -612,20 +655,18 @@ h1 {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 800ms var(--transition),
-    transform 800ms var(--transition), box-shadow 300ms var(--transition);
+    transform 800ms var(--transition);
   animation-delay: var(--delay, 0ms);
   max-width: var(--card-width);
   margin: 0 auto;
   width: 100%;
+  position: relative;
+  isolation: isolate;
 }
 
 .project-card.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.project-card:hover {
-  box-shadow: var(--shadow-md);
 }
 
 .project-media {
