@@ -161,12 +161,16 @@
               </header>
               <ul>
                 <li>
-                  Redesigned onboarding workflows, increasing expansion
-                  efficiency by 90%.
+                  Led enhancements to the Exchange Program Control Portal,
+                  expanding its scope from 1 to 4 marketplaces.
                 </li>
                 <li>
-                  Partnered across teams to deliver globally resilient
-                  architecture.
+                  Redesigned marketplace onboarding, achieving a 90%
+                  improvement in expansion efficiency.
+                </li>
+                <li>
+                  Collaborated across teams to scale system architecture and
+                  support growing operational needs.
                 </li>
               </ul>
             </article>
@@ -184,8 +188,17 @@
               </header>
               <ul>
                 <li>
-                  Refactored core market data pipelines, improving
-                  maintainability and onboarding speed by 70%.
+                  Optimized infrastructure, reducing server RAM usage by 71%
+                  (from 350+ GB to under 100 GB).
+                </li>
+                <li>
+                  Improved data streaming latency from 4+ hours to under 5
+                  seconds.
+                </li>
+                <li>
+                  Refactored core market data processing, enhancing performance
+                  and maintainability — making it 70% easier to onboard new
+                  developers and implement new features.
                 </li>
               </ul>
             </article>
@@ -318,12 +331,6 @@
                 "AI-powered SaaS that turns YouTube cooking videos into structured, searchable recipes — with tiered subscriptions, real-time extraction, and export to PDF or DOCX.",
               image: "images/videos-recipes.png",
               link: "https://videos.recipes",
-              highlights: [
-                "Extracts ingredients, steps, timings, and metadata from any cooking video URL",
-                "Tiered subscription billing via Paddle with webhook-driven entitlements",
-                "Full-text search and tag filtering across a personal recipe library",
-                "One-click export to PDF or DOCX for printing or sharing",
-              ],
               technologies: [
                 "Next.js",
                 "TypeScript",
@@ -340,13 +347,6 @@
                 "Tray-based clipboard history manager for Linux. Keyboard-first popup with search, pinned items, notes, and auto-paste — built for Ubuntu on GNOME/Wayland.",
               image: "images/clipmer.png",
               link: "https://clipmer.app",
-              highlights: [
-                "Up to 200 deduplicated entries (text and images); pinned items persist across restarts",
-                "Instant search across content and inline notes attached to any entry",
-                "Auto-paste on Wayland via a companion GNOME Shell extension",
-                "Global shortcut (Ctrl+Shift+D), dark/light themes with custom accent, adjustable font size",
-                "Distributed as .deb and AppImage with a Next.js marketing site at clipmer.app",
-              ],
               technologies: [
                 "Electron",
                 "Next.js",
@@ -384,17 +384,6 @@
               project.title
             }</a></h2>
                           <p>${project.description}</p>
-                          ${
-                            project.highlights
-                              ? `
-                              <ul class="project-highlights">
-                                  ${project.highlights
-                                    .map((h) => `<li>${h}</li>`)
-                                    .join("")}
-                              </ul>
-                          `
-                              : ""
-                          }
                           ${
                             project.technologies
                               ? `

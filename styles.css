@@ -733,34 +733,6 @@ h1 {
   line-height: 1.65;
 }
 
-.project-highlights {
-  list-style: none;
-  display: grid;
-  gap: 0.6rem;
-  margin-top: 0.25rem;
-  padding-top: 0.9rem;
-  border-top: var(--border-width) solid var(--color-border);
-  font-size: 0.9rem;
-}
-
-.project-highlights li {
-  position: relative;
-  padding-left: 1.4rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-}
-
-.project-highlights li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.65em;
-  width: 0.5rem;
-  height: 1.5px;
-  background: var(--color-primary);
-  border-radius: 1px;
-}
-
 .project-tags {
   list-style: none;
   display: flex;
